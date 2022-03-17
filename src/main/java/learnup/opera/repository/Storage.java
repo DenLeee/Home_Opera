@@ -15,15 +15,12 @@ public class Storage {
     private ArrayList<Ticked> tickedList;
     {
         premiereList = new ArrayList<>();
-        premiereList.add(new Premiere(++PRIMIERE_COUNT, "ДОН ЖУАН", "«Дон Жуан» Моцарта в спектакле +\n" +
-                " герои легендарной истории являются сообществом, +\n" +
-                " в котором царит культ гедонизма и безудержной жажды наслаждений.\n", 16, 200));
+        premiereList.add(new Premiere(++PRIMIERE_COUNT, "ДОН ЖУАН", "«Дон Жуан» Моцарта в спектакле +", 16, 200));
         premiereList.add(new Premiere(++PRIMIERE_COUNT, "СПЯЩАЯ КРАСАВИЦА", "Во дворце короля Флорестана XIV празднуют рождение дочери — принцессы Авроры. ",
                 6, 300));
-        premiereList.add(new Premiere(++PRIMIERE_COUNT, "РОМЕО И ДЖУЛЬЕТТА", "Трагедия Уильяма Шекспира, рассказывающая о любви юноши и девушки из двух враждующих веронских родов",
+        premiereList.add(new Premiere(++PRIMIERE_COUNT, "РОМЕО И ДЖУЛЬЕТТА", "Трагедия Уильяма Шекспира, о любви юноши и девушки из двух враждующих родов",
                 12, 250));
-        premiereList.add(new Premiere(++PRIMIERE_COUNT, "СПАРТАК", "Императорс Рима ведет жестокое завоевательное наступление.\n " +
-                "Среди скованных цепями пленников, обращенных в рабство, – Спартак и Фригия", 12, 200));
+        premiereList.add(new Premiere(++PRIMIERE_COUNT, "СПАРТАК", "Cкованных цепями пленников, обращенных в рабство, – Спартак и Фригия", 12, 200));
         tickedList = new ArrayList<>();
         tickedList.add(new Ticked(++TICKET_COUNT, premiereList.get(0), 800));
         tickedList.add(new Ticked(++TICKET_COUNT, premiereList.get(2), 1100));
@@ -49,12 +46,11 @@ public class Storage {
     }
 
     public Premiere updatePremiereByID(int id, Premiere premiere) {
-        return premiereList.set(id, premiere);
+        return premiereList.set(id-1, premiere);
     }
 
     public void deletePremiereByID(int id) {
         premiereList.remove(id);
-        System.out.println("Прьмьера с номером " + id + " удалена!");
     }
 
     public void deletePrimiereByNameOpera(String nameOpera) {
@@ -62,8 +58,6 @@ public class Storage {
             if (nameOpera.equals(premiereList.get(i).getNameOpera())) {
                 premiereList.remove(i);
                 System.out.println("Прьмьера с именем " + nameOpera + " удалена!");
-            } else {
-                System.out.println("Прьмьера с именем " + nameOpera + " не найдена!");
             }
         }
     }
@@ -84,3 +78,17 @@ public class Storage {
         tickedList.remove(id);
     }
 }
+
+
+//premiereList = new ArrayList<>();
+//        premiereList.add(new Premiere(++PRIMIERE_COUNT, "ДОН ЖУАН", "«Дон Жуан» Моцарта в спектакле +", 16, 200));
+//        premiereList.add(new Premiere(++PRIMIERE_COUNT, "СПЯЩАЯ КРАСАВИЦА", "Во дворце короля Флорестана XIV празднуют рождение дочери — принцессы Авроры. ",
+//        6, 300));
+//        premiereList.add(new Premiere(++PRIMIERE_COUNT, "РОМЕО И ДЖУЛЬЕТТА", "Трагедия Уильяма Шекспира, о любви юноши и девушки из двух враждующих родов",
+//        12, 250));
+//        premiereList.add(new Premiere(++PRIMIERE_COUNT, "СПАРТАК", "Cкованных цепями пленников, обращенных в рабство, – Спартак и Фригия", 12, 200));
+//        tickedList = new ArrayList<>();
+//        tickedList.add(new Ticked(++TICKET_COUNT, premiereList.get(0), 800));
+//        tickedList.add(new Ticked(++TICKET_COUNT, premiereList.get(2), 1100));
+//        tickedList.add(new Ticked(++TICKET_COUNT, premiereList.get(1), 700));
+//        tickedList.add(new Ticked(++TICKET_COUNT, premiereList.get(0), 800));

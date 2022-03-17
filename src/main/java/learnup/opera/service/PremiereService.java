@@ -9,8 +9,11 @@ import java.util.ArrayList;
 
 @Service
 public class PremiereService {
-    @Autowired
-    private Storage storage;
+    private final Storage storage;
+
+    public PremiereService(Storage storage) {
+        this.storage = storage;
+    }
 
     public void addPremiere (Premiere premiere) {
         storage.addPremiere(premiere);
